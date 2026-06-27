@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using PedidosApp.Api.Contexts;
+using PedidosApp.Api.Handlers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,9 @@ builder.Services.AddMediatR(m => {
 builder.Services.AddDbContext<SqlServerContext>
     (options => options.UseSqlServer
         (builder.Configuration.GetConnectionString("SqlServer")));
+
+builder.Services.AddScoped<MongoDbContext>();
+builder.Services.AddScoped<PedidoNotificationHandler>();
 
 var app = builder.Build();
 

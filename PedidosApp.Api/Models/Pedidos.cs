@@ -9,7 +9,7 @@ namespace PedidosApp.Api.Models
     public class Pedidos
     {
         [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
+        [BsonRepresentation(BsonType.String)]
         public string? Id { get; set; }
 
         [BsonElement("nome_cliente")]
